@@ -13,6 +13,9 @@ export class SignUpController implements Controller {
       }
     }
 
-    return badRequest(new MissingParamsError('some error'))
+    return {
+      statusCode: 200,
+      body: 'OK'
+    }
   }
 }
