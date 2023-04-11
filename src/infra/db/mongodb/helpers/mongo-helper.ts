@@ -4,7 +4,8 @@ export const MongoHelper = {
   client: null as unknown as MongoClient,
 
   async connect (uri: string): Promise<void> {
-    this.client = await MongoClient.connect(String(process.env.MONGO_URL))
+    this.client = await MongoClient.connect(uri)
+    // this.client = new MongoClient(uri).connect()
   },
 
   async disconnect (): Promise<void> {
