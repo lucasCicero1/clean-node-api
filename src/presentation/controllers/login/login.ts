@@ -1,4 +1,4 @@
-import { InvalidParamError, MissingParamsError } from '../../erros'
+import { InvalidParamError, MissingParamError } from '../../erros'
 import { badRequest, serverError, unauthorized, ok } from '../../helpers/http-helper'
 import type {
   HttpRequest,
@@ -23,7 +23,7 @@ export class LoginController implements Controller {
 
       for (const field of fields) {
         if (!httpRequest.body[field]) {
-          return badRequest(new MissingParamsError(field))
+          return badRequest(new MissingParamError(field))
         }
       }
 

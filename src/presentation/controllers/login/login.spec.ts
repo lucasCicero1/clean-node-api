@@ -1,6 +1,6 @@
 import { LoginController } from './login'
 import { badRequest, serverError, unauthorized, ok } from '../../helpers/http-helper'
-import { InvalidParamError, MissingParamsError } from '../../erros'
+import { InvalidParamError, MissingParamError } from '../../erros'
 import type { EmailValidator, HttpRequest, Authentication } from './login-protocols'
 
 const makeAuthenticationStub = (): Authentication => {
@@ -57,7 +57,7 @@ describe('Login Controller', () => {
     }
 
     const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse).toEqual(badRequest(new MissingParamsError('email')))
+    expect(httpResponse).toEqual(badRequest(new MissingParamError('email')))
   })
 
   test('Should return 400 if no password is provided', async () => {
@@ -69,7 +69,7 @@ describe('Login Controller', () => {
     }
 
     const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse).toEqual(badRequest(new MissingParamsError('password')))
+    expect(httpResponse).toEqual(badRequest(new MissingParamError('password')))
   })
 
   test('Should return 400 if email is invalid', async () => {

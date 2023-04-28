@@ -1,5 +1,5 @@
 import { SignUpController } from './signup'
-import { MissingParamsError, ServerError } from '../../erros'
+import { MissingParamError, ServerError } from '../../erros'
 import type {
   AccountModel,
   AddAccount,
@@ -111,11 +111,11 @@ describe('SignUp Controller', () => {
   test('Should return 400 if Validation returns an error', async () => {
     const { sut, validationStub } = makeSut()
     jest.spyOn(validationStub, 'validate').mockReturnValueOnce(
-      new MissingParamsError('any_field')
+      new MissingParamError('any_field')
     )
 
     const httpRequest = makeFakeRequest()
     const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse).toEqual(badRequest(new MissingParamsError('any_field')))
+    expect(httpResponse).toEqual(badRequest(new MissingParamError('any_field')))
   })
 })
