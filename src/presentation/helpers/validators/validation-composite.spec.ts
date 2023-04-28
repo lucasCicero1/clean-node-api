@@ -1,4 +1,4 @@
-import { MissingParamsError } from '../../erros'
+import { InvalidParamError, MissingParamsError } from '../../erros'
 import { type Validation } from './validation'
 import { ValidationComposite } from './validation-composite'
 
@@ -34,6 +34,19 @@ describe('Validation Composite', () => {
     const { sut, validationStubs } = makeSut()
     jest.spyOn(validationStubs[1], 'validate').mockReturnValueOnce(
       new MissingParamsError('any_param')
+    )
+
+    const validateResponse = sut.validate({ any: 'any' })
+    expect(validateResponse).toEqual(new MissingParamsError('any_param'))
+  })
+
+  test('Should return the first error if two validation fails', () => {
+    const { sut, validationStubs } = makeSut()
+    jest.spyOn(validationStubs[0], 'validate').mockReturnValueOnce(
+      new MissingParamsError('any_param')
+    )
+    jest.spyOn(validationStubs[1], 'validate').mockReturnValueOnce(
+      new InvalidParamError('any_param')
     )
 
     const validateResponse = sut.validate({ any: 'any' })
