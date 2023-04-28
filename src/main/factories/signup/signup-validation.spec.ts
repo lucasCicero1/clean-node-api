@@ -1,9 +1,6 @@
+import { CompareFieldsValidation, EmailValidation, RequiredFieldValidation, ValidationComposite } from '../../../presentation/helpers/validators'
 import { makeSignUpValidation } from './signup-validation'
-import { ValidationComposite } from '../../../presentation/helpers/validators/validation-composite'
-import { RequiredFieldValidation } from '../../../presentation/helpers/validators/required-field-validation'
 import { type Validation } from '../../../presentation/protocols/validation'
-import { CompareFieldsValidation } from '../../../presentation/helpers/validators/compare-fields-validation'
-import { EmailValidation } from '../../../presentation/helpers/validators/email-validation'
 import { type EmailValidator } from '../../../presentation/protocols/email-validator'
 
 // mock do modulo pra perder o comportamento default
