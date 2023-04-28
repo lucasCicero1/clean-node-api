@@ -52,4 +52,11 @@ describe('Validation Composite', () => {
     const validateResponse = sut.validate({ any: 'any' })
     expect(validateResponse).toEqual(new MissingParamsError('any_param'))
   })
+
+  test('Should return nothing if all validations pass', () => {
+    const { sut } = makeSut()
+
+    const validateResponse = sut.validate({ any: 'any' })
+    expect(validateResponse).toBeFalsy()
+  })
 })
