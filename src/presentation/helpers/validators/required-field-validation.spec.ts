@@ -8,4 +8,11 @@ describe('RequiredField Validation', () => {
     const validateResponse = sut.validate({ name: 'any_name' })
     expect(validateResponse).toEqual(new MissingParamsError('email'))
   })
+
+  test('Should return nothing if validation pass', () => {
+    const sut = new RequiredFieldValidation('email')
+
+    const validateResponse = sut.validate({ email: 'any_email' })
+    expect(validateResponse).toBeFalsy()
+  })
 })
