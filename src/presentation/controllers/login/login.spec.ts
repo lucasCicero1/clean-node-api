@@ -5,7 +5,7 @@ import type { HttpRequest, Authentication, Validation, AuthenticationModel } fro
 
 const makeAuthenticationStub = (): Authentication => {
   class AuthenticationStub implements Authentication {
-    async auth (authentication: AuthenticationModel): Promise<string> {
+    async auth (authentication: AuthenticationModel): Promise<string | null> {
       return 'any_token'
     }
   }
