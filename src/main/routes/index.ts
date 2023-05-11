@@ -1,4 +1,4 @@
-import signupRoute from './signup-route'
+import signupRoute from './login-routes'
 
 export default [
   signupRoute
