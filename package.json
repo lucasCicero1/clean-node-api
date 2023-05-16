@@ -4,6 +4,8 @@
   "description": "Node API using Clean Architecture, TDD and TypeScript",
   "main": "index.js",
   "scripts": {
+    "start": "node dist/main/server.js",
+    "build": "rimraf dist && tsc",
     "dev": "sucrase-node src/main/server.ts",
     "prepare": "husky install",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
@@ -36,6 +38,7 @@
     "husky": "^8.0.0",
     "jest": "^29.5.0",
     "lint-staged": "^13.2.0",
+    "rimraf": "^5.0.0",
     "sucrase": "^3.31.0",
     "supertest": "^6.3.3",
     "ts-jest": "^29.0.5",
