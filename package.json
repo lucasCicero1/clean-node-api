@@ -1,7 +1,7 @@
 {
   "name": "clean-node-api",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "Node API using Clean Architecture, TDD and TypeScript",
   "main": "index.js",
   "scripts": {
     "dev": "sucrase-node src/main/server.ts",
