@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node dist/main/server.js",
     "build": "rimraf dist && tsc",
-    "dev": "sucrase-node src/main/server.ts",
+    "up": "npm run build && docker compose up -d",
+    "down": "docker compose down",
     "prepare": "husky install",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
@@ -39,7 +40,6 @@
     "jest": "^29.5.0",
     "lint-staged": "^13.2.0",
     "rimraf": "^5.0.0",
-    "sucrase": "^3.31.0",
     "supertest": "^6.3.3",
     "ts-jest": "^29.0.5",
     "typescript": "^5.0.2"
