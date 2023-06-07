@@ -1,4 +1,4 @@
-import { badRequest, serverError } from '../../../helpers/http/http-helper'
+import { badRequest, noContent, serverError } from '../../../helpers/http/http-helper'
 import type { HttpRequest, HttpResponse, Controller, Validation, AddSurvey } from './add-survey-controller-protocols'
 
 export class AddSurveyController implements Controller {
@@ -13,10 +13,7 @@ export class AddSurveyController implements Controller {
       if (error) return badRequest(error)
       const { question, answers } = httpRequest.body
       await this.addSurvey.add({ question, answers })
-      return {
-        statusCode: 200,
-        body: ''
-      }
+      return noContent()
     } catch (error) {
       return serverError(error)
     }
