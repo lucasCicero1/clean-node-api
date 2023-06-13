@@ -14,7 +14,7 @@ const makeloadAccountByTokenRepository = (): LoadAccountByTokenRepository => {
 
 const makeDecrypter = (): Decrypter => {
   class DecrypterStub implements Decrypter {
-    decrypt (value: string): string | null {
+    decrypt (token: string): string | null {
       return 'any_value'
     }
   }
