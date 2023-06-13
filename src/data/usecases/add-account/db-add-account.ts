@@ -1,4 +1,11 @@
-import type { AddAccount, AddAccountModel, AccountModel, Hasher, AddAccountRepository, LoadAccountByEmailRepository } from './db-add-account-protocols'
+import type {
+  AddAccount,
+  AddAccountModel,
+  AccountModel,
+  Hasher,
+  AddAccountRepository,
+  LoadAccountByEmailRepository
+} from './db-add-account-protocols'
 
 export class DbAddAccount implements AddAccount {
   constructor (
@@ -11,7 +18,9 @@ export class DbAddAccount implements AddAccount {
     const account = await this.loadAccountByEmailRepository.loadByEmail(accountData.email)
     if (account) return null
     const hashedPassword = await this.hasher.hash(accountData.password)
-    const newAccount = await this.addAccountRepository.add(Object.assign({}, accountData, { password: hashedPassword }))
+    const newAccount = await this.addAccountRepository.add(
+      Object.assign({}, accountData, { password: hashedPassword })
+    )
     return newAccount
   }
 }

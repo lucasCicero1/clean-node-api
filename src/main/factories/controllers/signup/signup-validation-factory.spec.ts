@@ -12,7 +12,6 @@ const makeEmailValidator = (): EmailValidator => {
       return true
     }
   }
-
   return new EmailValidatorStub()
 }
 
@@ -24,10 +23,8 @@ describe('SignUpValidation Factory', () => {
     for (const field of ['name', 'email', 'password', 'passwordConfirmation']) {
       validations.push(new RequiredFieldValidation(field))
     }
-
     validations.push(new CompareFieldsValidation('password', 'passwordConfirmation'))
     validations.push(new EmailValidation('email', makeEmailValidator()))
-
     expect(ValidationComposite).toHaveBeenCalledWith(validations)
   })
 })
