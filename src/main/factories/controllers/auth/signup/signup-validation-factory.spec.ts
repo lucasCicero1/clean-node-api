@@ -1,7 +1,7 @@
-import { CompareFieldsValidation, EmailValidation, RequiredFieldValidation, ValidationComposite } from '../../../../../validation/validators'
+import { CompareFieldsValidation, EmailValidation, RequiredFieldValidation, ValidationComposite } from '@/validation/validators'
+import { type Validation } from '@/presentation/protocols/validation'
+import { type EmailValidator } from '@/validation/protocols/email-validator'
 import { makeSignUpValidation } from './signup-validation-factory'
-import { type Validation } from '../../../../../presentation/protocols/validation'
-import { type EmailValidator } from '../../../../../validation/protocols/email-validator'
 
 // mock do modulo pra perder o comportamento default
 jest.mock('../../../../../validation/validators/validation-composite')
